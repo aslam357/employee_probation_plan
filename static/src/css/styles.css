@@ -1,0 +1,48 @@
+/* Add this to your module's static/src/css/styles.css */
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    color: #f39c12; /* Color for filled stars */
+    justify-content: center; /* Center stars horizontally */
+    align-items: center; /* Center stars vertically */
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    position: relative;
+}
+
+.star-rating label::before {
+    content: '★'; /* Star character */
+    font-family: Arial, sans-serif;
+    font-size: 2rem; /* Adjust size as needed */
+    color: #ddd; /* Color for unfilled stars */
+}
+
+.star-rating input:checked ~ label::before {
+    color: #f39c12; /* Color for filled stars */
+}
+
+.star-rating input:checked ~ label ~ label::before {
+    color: #f39c12; /* Ensure previously unchecked stars are filled */
+}
+
+.star-rating input:not(:checked) ~ label::before {
+    color: #ddd; /* Ensure unchecked stars are unfilled */
+}
+
+/* Hover effect */
+.star-rating label:hover::before,
+.star-rating label:hover ~ label::before {
+    color: #f39c12; /* Color on hover */
+}
+
+/* Rating on hover, keep track of the hovered state */
+.star-rating input:hover ~ label::before {
+    color: #f39c12;
+}

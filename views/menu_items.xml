@@ -1,0 +1,14 @@
+    <odoo>
+    <menuitem id="menu_hr_employee_probation" 
+              name="Employee Probation Plans"
+              parent="hr_recruitment.menu_crm_case_categ0_act_job"
+              action="action_hr_employee_probation"
+              sequence="20"/>
+
+        <menuitem id="menu_hr_employee_group_by_stage"
+              name="Grouped by Stage"
+              parent="hr.menu_hr_employee"
+              action="action_group_by_stage"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+probation_plan.access_hr_employee_probation,access_hr_employee_probation,probation_plan.model_hr_employee_probation,base.group_user,1,1,1,1

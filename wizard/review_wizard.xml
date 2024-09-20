@@ -1,0 +1,34 @@
+   <odoo>
+    <record id="view_hr_employee_probation_send_review_wizard_form" model="ir.ui.view">
+        <field name="name">hr.employee.probation.send.review.wizard.form</field>
+        <field name="model">hr.employee.probation.send.review.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Review">
+               <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="parent_id"/>
+                        <field name="job_id"/>
+                        <field name="department_id"/>
+                        <field name="coach_id"/>
+                        <field name="probation_start_date"/>
+                        <field name="probation_end_date"/>
+                        <field name="progress_rating"/>
+                    </group>
+                    <notebook>
+                        <page string="Review">
+                            <group>
+                                <field name="review_comments"/>
+                            </group>
+                        </page>
+                        <page string="Extra Information">
+                            <group>
+                                <field name="extra_info"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

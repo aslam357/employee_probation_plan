@@ -1,0 +1,52 @@
+    <odoo>
+    <record id="email_template_probation_end" model="mail.template">
+        <field name="name">Probation End Notification</field>
+        <field name="email_from">${(user.email or '').strip()}</field>
+        <field name="subject">Your Probation Period Has Ended</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="auto_delete" eval="False"/>
+        <field name="lang">${object.lang}</field>
+        <field name="body_html">
+            <![CDATA[
+            <p>Dear ${object.name},</p>
+            <p>Your probation period has ended. You are now considered an active employee.</p>
+            <p>Regards,</p>
+            <p>HR Department</p>
+            ]]>
+        </field>
+    </record>
+
+<record id="email_template_probation_relieve" model="mail.template">
+    <field name="name">Probation Relieve Email</field>
+    <field name="model_id" ref="model_hr_employee_probation"/>
+    <field name="subject">Probation Period Relieve</field>
+    <field name="email_from">${object.employee_id.work_email or user.email_formatted}</field>
+    <field name="email_to">${object.employee_id.work_email}</field>
+    <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.name},</p>
+        <p>Your probation period has been extended. You are still under probation.</p>
+        <p>Review Comments:</p>
+        <p>${object.review_comments}</p>
+        <p>Regards,</p>
+        <p>HR Department</p>
+        ]]>
+    </field>
+</record>
+
+<record id="email_template_probation_extension" model="mail.template">
+    <field name="name">Probation Extension Email</field>
+    <field name="model_id" ref="model_hr_employee_probation"/>
+    <field name="subject">Probation Period Extended</field>
+    <field name="email_from">${object.employee_id.work_email or user.email_formatted}</field>
+    <field name="email_to">${object.employee_id.work_email}</field>
+    <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.name},</p>
+        <p>Your probation period has been extended. You are still under probation.</p>
+        <p>Regards,</p>
+        <p>HR Department</p>
+        ]]>
+    </field>
+</record>
+</odoo>

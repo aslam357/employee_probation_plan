@@ -1,0 +1,74 @@
+<odoo>
+<record id="view_hr_employee_probation_form" model="ir.ui.view">
+    <field name="name">hr.employee.probation.form</field>
+    <field name="model">hr.employee.probation</field>
+    <field name="arch" type="xml">
+        <form string="Employee Probation">
+        <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,reviewed,refused"/>
+                <button string="Set Probation Plan" type="object" name="action_set_probation_plan" class="btn-primary"
+                    />
+              
+                <button string="Send Review" type="object" name="action_send_review" class="btn-success"
+                    invisible="state == 'draft'"/>
+                <button string="Refuse" type="object" name="action_refuse" class="btn-secondary"
+                    invisible="state == 'draft'"/>
+        </header> 
+            <sheet>
+                <group>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="coach_id"/>
+                    </group>
+                    <group>
+                        <field name="parent_id"/>
+                        <field name="job_id"/>
+                    </group>
+                    <group>
+                        <field name="department_id"/>
+                        <field name="probation_start_date"/>
+                    </group>
+                    <group>
+                        <field name="probation_end_date"/>
+                        <field name="probation_status" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="progress_rating"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Plan">
+                        <group>
+                            <field name="plan"/>
+                        </group>
+                    </page>
+                    <page string="Review">
+                        <group>
+                            <field name="review_comments"/>
+                        </group>
+                    </page>
+                    <page string="Extra Information">
+                        <group>
+                            <field name="extra_info"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+    <record id="action_hr_employee_probation" model="ir.actions.act_window">
+        <field name="name">Employee Probation Plans</field>
+        <field name="res_model">hr.employee.probation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hr_employee_probation_form"/>
+        <field name="target">current</field>
+    </record>
+
+
+
+
+
+
+</odoo>

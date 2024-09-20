@@ -1,0 +1,23 @@
+   <odoo>
+    <record id="view_hr_employee_probation_set_plan_wizard_form" model="ir.ui.view">
+        <field name="name">hr.employee.probation.set.plan.wizard.form</field>
+        <field name="model">hr.employee.probation.set.plan.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Set Probation Plan">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="parent_id"/>
+                        <field name="job_id"/>
+                        <field name="department_id"/>
+                        <field name="coach_id"/>
+                        <field name="probation_start_date"/>
+                        <field name="probation_end_date"/>
+                        <field name="progress_rating"/>
+                        <field name="plan"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    </odoo>
